@@ -1,6 +1,4 @@
-# angular-starter
-
-[![Build Status](https://travis-ci.org/jacksongomesbr/angular-starter.svg?branch=master)](https://travis-ci.org/jacksongomesbr/angular-starter)
+# teglo-fit
 
 Software-base para desenvolvimento de aplicativos baseados em Angular, utilizado na disciplina de Linguagem de Programação para a Web do Departamento de Computação do CEULP/ULBRA - Palmas - TO
 
