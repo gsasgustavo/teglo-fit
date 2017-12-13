@@ -1,0 +1,31 @@
+<div class="container"><br/>
+    <nav class="navbar navbar-inverse navbar-toggleable-md" style="background-color:#F0F5F8;border-radius:10px;">
+        <ul style="display:inline-block">
+            <li class="nav-item" style="display:inline-block" routerLinkActive="active">
+                <a class="nav-link" style="color:black;" routerLink='/home' >Teglo Fit</a>
+            </li>
+            <li class="nav-item" style="display:inline-block" routerLinkActive="active">
+                <a class="nav-link" style="color:black;" routerLink="/pesagens">Pesagens</a>
+            </li>
+            <li class="nav-item" style="display:inline-block" routerLinkActive="active">
+                <a class="nav-link" style="color:black;" routerLink="/user">Perfil</a>
+            </li>
+            <li class="nav-item" style="display:inline-block" routerLinkActive="active">
+                <a class="nav-link" style="color:black;" routerLink="/about">Sobre</a>
+            </li>
+            <li class="nav-item" style="display:inline-block" routerLinkActive="active">
+                <a class="nav-link" style="color:black;" routerLink='' (click)="logoff()">Sair</a>
+            </li>
+        </ul>
+    </nav>
+</div>
+<div class="container">
+    <br/>
+    <router-outlet></router-outlet>
+    <hr/>
+    <div class="container">
+        <footer>
+            <small>TegloFit - Desenvolvido em 2017</small>
+        </footer>
+    </div>
+</div>

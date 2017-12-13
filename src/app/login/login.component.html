@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="row" style="height: 600px;">
+        <div class="col"></div>
+        <div class="col-6 align-self-center">
+            <div class="card">
+                <div class="card-body">
+                    <h1 class="card-title">TegloFit</h1>
+                    
+                    <form #auth="ngForm" (submit)="login()">
+                        <div class="form-group">
+                            <label for="username">Nome de Usuário:</label>
+                            <input type="text" id="username" name="username" class="form-control form-control-lg" required
+                                    [(ngModel)]="username">
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Senha de Acesso:</label>
+                            <input type="password" id="password" name="password" class="form-control form-control-lg"
+                                    required [(ngModel)]="password">
+                        </div>
+                        <div class="text-right">
+                            <button type="submit" class="btn btn-primary" [disabled]="!auth.valid">Entrar</button>
+                        </div>
+                        <div *ngIf="error" class="alert alert-warning">{{error}}</div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col"></div>
+    </div>
+</div>    

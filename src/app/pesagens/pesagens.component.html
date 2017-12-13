@@ -1,0 +1,55 @@
+<div class="container">
+    <h1>Pesagens</h1>
+    <table class="table table-stripped" class="table table-hover" >
+        <thead>
+            <tr>
+                <th>Usuário</th>
+                <th>Peso</th>
+                <th>Data</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let pesagem of pesagens">
+                <td>
+                    <i class="material-icons">perm_identity</i>
+                </td>
+                <!--td *ngIf="pesagem==pesAnt;pesAnt=pesagem.peso">
+                    <button class="btn btn-warning">{{pesagem.peso}}</button>
+                </td>
+                <td *ngIf="pesagem>pesAnt;pesAnt=pesagem.peso">
+                    <button class="btn btn-danger">{{pesagem.peso}}</button>
+                </td-->
+                <td>
+                    <button class="btn btn-default">{{pesagem.peso}}</button>
+                </td>
+                <td>
+                    {{pesagem.data}}
+                </td>
+                <td>
+                    <button class="btn btn-danger opcoes" style="background-color: #f6a2a0;border-color: #f20000;" (click)="pesagemSelecionado = pesagem" data-toggle="modal" data-target="#confirmarExclusao"><i class="fa fa-trash-o"  aria-hidden="true"></i></button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div *ngIf = "verificarProgressao()" class="alert alert-warning" role="alert">
+        <strong>Ei Amigo!</strong> Cuidado! Sua progressão está regredindo! :/
+    </div>
+    <div *ngIf="pesagemSelecionado" class="modal fade" id="confirmarExclusao" tabindex="-1" role="dialog" aria-labelledby="confirmarExclusaoLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="confirmarExclusaoLabel">Confirmar Exclusão</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Deseja realmente retirar esta pesagem de seu histórico<strong>{{pesagemSelecionado.e}}</strong>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Sair</button><button type="button" class="btn btn-warning" (click)="excluirPesagem(pesagemSelecionado);"  data-dismiss="modal">Excluir</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
