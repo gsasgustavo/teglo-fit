@@ -4,39 +4,40 @@
         <div class="form-group">
             <label for="nome">Nome</label>
             <input type="text" id="nome" name="nome" class="form-control"
-                [(ngModel)]="usuario.nome" #nome="ngModel"
+                [(ngModel)]="user.nome" #nome="ngModel"
                 placeholder="Nome" required>
             <div class="alert alert-danger" [hidden]="nome.valid || nome.pristine">Preenchimento Obrigatório</div>
         </div>
         <div class="form-group">
             <label for="sobrenome">Sobrenome</label>
             <input type="text" id="sobrenome" name="sobrenome" class="form-control"
-                [(ngModel)]="usuario.sobrenome" #sobrenome="ngModel"
+                [(ngModel)]="user.sobrenome" #sobrenome="ngModel"
                 placeholder="Sobrenome" required>
             <div class="alert alert-danger" [hidden]="sobrenome.valid || sobrenome.pristine">Preenchimento Obrigatório</div>
         </div>
         <div class="form-group">
             <label for="contato">Contato</label>
             <input type="text" id="contato" name="contato" class="form-control"
-                [(ngModel)]="usuario.contato" #contato="ngModel"
+                [(ngModel)]="user.contato" #contato="ngModel"
                 placeholder="Contato" required>
             <div class="alert alert-danger" [hidden]="contato.valid || contato.pristine">Preenchimento Obrigatório</div>
         </div>
         <div class="form-group">
-            <label for="login">Nome de Usuário</label>
-            <input type="text" id="login" name="login" class="form-control"
-                [(ngModel)]="usuario.login" #login="ngModel"
+            <label for="username">Nome de Usuário</label>
+            <input type="text" id="username" name="username" class="form-control"
+                [(ngModel)]="user.username" #username="ngModel"
                 placeholder="Nome de Usuário" required>
-            <div class="alert alert-danger" [hidden]="login.valid || login.pristine">Preenchimento Obrigatório</div>
+            <div class="alert alert-danger" [hidden]="username.valid || username.pristine">Preenchimento Obrigatório</div>
         </div>
         <div class="form-group">
-            <label for="senha">Senha de Acesso</label>
-            <input type="text" id="senha" name="senha" class="form-control"
-                [(ngModel)]="usuario.senha" #senha="ngModel"
+            <label for="password">Senha de Acesso</label>
+            <input type="text" id="password" name="password" class="form-control"
+                [(ngModel)]="user.password" #password="ngModel"
                 placeholder="Senha de Acesso" required>
-            <div class="alert alert-danger" [hidden]="senha.valid || senha.pristine">Preenchimento Obrigatório</div>
+            <div class="alert alert-danger" [hidden]="password.valid || password.pristine">Preenchimento Obrigatório</div>
         </div>
         <button type="submit" class="btn btn-success" [disabled]="!formCadastro.form.valid">Salvar</button>
         <button class="btn btn-danger"(click)="home()">Cancelar</button>
     </form>
+    {{usuario}}
 </div>

@@ -9,8 +9,7 @@ import 'rxjs/add/operator/map';
 
 @Injectable()
 export class PesagensService {
-    private url='http://localhost:3000/pesagens/'; //API para testes
-    //private url='https://teglo-fit.herokuapp.com/peso/';
+    private url='http://localhost:3000/pesagens';
     private headers=null;
     private options=null;
 

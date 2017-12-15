@@ -7,13 +7,9 @@ import 'rxjs/add/operator/map'
 @Injectable()
 export class AuthService {
     public token: string;
-    private url='http://sistema-eventos-back.herokuapp.com/api-token-auth/'; //API para testes
-    //private url='https://teglo-fit.herokuapp.com/usuario/?format=api';
+    private url='http://sistema-eventos-back.herokuapp.com/api-token-auth/';
     private headers=new Headers({
-        //'Access-Control-Allow-Origin': '*',
-        //'Access-Control-Allow-Methods': 'POST, GET, OPTIONS, PUT',
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
+        'Content-Type': 'application/json'
     });
     private options=new RequestOptions({
         headers: this.headers
