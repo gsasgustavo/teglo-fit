@@ -9,8 +9,10 @@ import 'rxjs/add/operator/map';
 
 @Injectable()
 export class UserService {
-    private headers = null;
-    private options = null;
+    private url='http://localhost:3000/usuarios/'; //API para testes
+    //private url='https://teglo-fit.herokuapp.com/usuario/';
+    private headers=null;
+    private options=null;
 
     constructor(private http: Http) { 
         this.headers = new Headers({'Content-Type': 'application/json'});
@@ -18,11 +20,11 @@ export class UserService {
     }
 
     all(): Observable<any[]> {
-        return this.http.get('https://teglo-fit.herokuapp.com/usuario/')
+        return this.http.get(this.url)
             .map(response => response.json());
     }
 	find(id: number): Observable<User> {
-        return this.all().map(usuarios => usuarios.find(usuario => usuario.id === id));
+        return this.all().map(usuarios => usuarios.find(usuario => usuario.id===id));
     }
 	update(
         id: number,
@@ -40,7 +42,7 @@ export class UserService {
             username: username,
             password: password
         };
-        return this.http.put('https://teglo-fit.herokuapp.com/usuario/' + id, JSON.stringify(usuario), this.options)
+        return this.http.put(this.url+id, JSON.stringify(usuario), this.options)
             .map(response => response.json())
             .catch((error:any) => Observable.throw(error.json().error || 'Erro ao conectar ao servidor.'));
     }

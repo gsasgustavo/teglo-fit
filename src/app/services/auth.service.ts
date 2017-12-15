@@ -7,11 +7,11 @@ import 'rxjs/add/operator/map'
 @Injectable()
 export class AuthService {
     public token: string;
-    //private url='http://sistema-eventos-back.herokuapp.com/api-token-auth/';
-    private url='https://teglo-fit.herokuapp.com/usuario/?format=api';
+    private url='http://sistema-eventos-back.herokuapp.com/api-token-auth/'; //API para testes
+    //private url='https://teglo-fit.herokuapp.com/usuario/?format=api';
     private headers=new Headers({
-        'Access-Control-Allow-Origin': '*',
-        'Access-Control-Allow-Methods': 'POST, GET, OPTIONS, PUT',
+        //'Access-Control-Allow-Origin': '*',
+        //'Access-Control-Allow-Methods': 'POST, GET, OPTIONS, PUT',
         'Content-Type': 'application/json',
         'Accept': 'application/json'
     });
@@ -29,13 +29,11 @@ export class AuthService {
     }
 
     login(username: string, password: string): Observable<boolean> {
-        let body=JSON.stringify({ username: username, password: password, Headers });
+        let body=JSON.stringify({ username: username, password: password, headers: Headers });
         return this.http.post(this.url, body, this.options)
         .map((response: Response) => {
             let a=console.log(body);
-            let b=console.log(this.token);        
-            let c=console.log(status);
-            let d=console.log(this.headers);
+            let b=console.log(response);
             let token=response.json() && response.json().token;
             if (token) {
                 this.token=token;

@@ -9,8 +9,10 @@ import 'rxjs/add/operator/map';
 
 @Injectable()
 export class PesagensService {
-    private headers = null;
-    private options = null;
+    private url='http://localhost:3000/pesagens/'; //API para testes
+    //private url='https://teglo-fit.herokuapp.com/peso/';
+    private headers=null;
+    private options=null;
 
     constructor(private http: Http) { 
         this.headers = new Headers({'Content-Type': 'application/json'});
@@ -18,14 +20,14 @@ export class PesagensService {
     }
 
     all(): Observable<any[]> {
-        return this.http.get('https://teglo-fit.herokuapp.com/peso/')
+        return this.http.get(this.url)
             .map(response => response.json());
     }
 	find(id: number): Observable<Pesagens> {
         return this.all().map(pesagens => pesagens.find(pesagem => pesagem.id === id));
     }
 	delete(id: number) {
-        return this.http.delete('https://teglo-fit.herokuapp.com/peso/' + id, this.options)
+        return this.http.delete(this.url+id, this.options)
             .map(response => response.json())
             .catch((error:any) => Observable.throw(error.json().error || 'Erro ao conectar ao servidor.'));
     }
