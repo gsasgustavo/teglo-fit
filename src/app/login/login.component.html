@@ -2,10 +2,9 @@
     <div class="row" style="height: 600px;">
         <div class="col"></div>
         <div class="col-6 align-self-center">
-            <div class="card">
+            <div class="jumbotron">
                 <div class="card-body">
                     <h1 class="card-title">TegloFit</h1>
-                    
                     <form #auth="ngForm" (submit)="login()">
                         <div class="form-group">
                             <label for="username">Nome de Usuário:</label>
@@ -21,6 +20,7 @@
                             <button type="submit" class="btn btn-primary" [disabled]="!auth.valid">Entrar</button>
                         </div>
                         <div *ngIf="error" class="alert alert-warning">{{error}}</div>
+                        <div *ngIf="error" class="alert alert-danger">{{error}}</div>
                     </form>
                 </div>
             </div>

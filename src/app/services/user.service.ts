@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http, RequestOptions,Response, Headers } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
-import { User } from '../user/user.model';
+import { User } from '../admin/user/user.model';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
 import 'rxjs/add/operator/map';
@@ -18,7 +18,7 @@ export class UserService {
     }
 
     all(): Observable<any[]> {
-        return this.http.get('http://localhost:3000/usuarios')
+        return this.http.get('https://teglo-fit.herokuapp.com/usuario/')
             .map(response => response.json());
     }
 	find(id: number): Observable<User> {
@@ -40,7 +40,7 @@ export class UserService {
             username: username,
             password: password
         };
-        return this.http.put('http://localhost:3000/usuarios/' + id, JSON.stringify(usuario), this.options)
+        return this.http.put('https://teglo-fit.herokuapp.com/usuario/' + id, JSON.stringify(usuario), this.options)
             .map(response => response.json())
             .catch((error:any) => Observable.throw(error.json().error || 'Erro ao conectar ao servidor.'));
     }

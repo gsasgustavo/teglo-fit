@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http, RequestOptions,Response, Headers } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
-import { Pesagens } from '../pesagens/pesagens.model';
+import { Pesagens } from '../admin/pesagens/pesagens.model';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
 import 'rxjs/add/operator/map';
@@ -18,14 +18,14 @@ export class PesagensService {
     }
 
     all(): Observable<any[]> {
-        return this.http.get('http://localhost:3000/pesagens')
+        return this.http.get('https://teglo-fit.herokuapp.com/peso/')
             .map(response => response.json());
     }
 	find(id: number): Observable<Pesagens> {
         return this.all().map(pesagens => pesagens.find(pesagem => pesagem.id === id));
     }
 	delete(id: number) {
-        return this.http.delete('http://localhost:3000/pesagens/' + id, this.options)
+        return this.http.delete('https://teglo-fit.herokuapp.com/peso/' + id, this.options)
             .map(response => response.json())
             .catch((error:any) => Observable.throw(error.json().error || 'Erro ao conectar ao servidor.'));
     }

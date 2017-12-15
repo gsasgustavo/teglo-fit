@@ -7,9 +7,17 @@ import 'rxjs/add/operator/map'
 @Injectable()
 export class AuthService {
     public token: string;
-    private url='http://sistema-eventos-back.herokuapp.com/api-token-auth/';
-    private headers=new Headers({ 'Content-Type': 'application/json' });
-    private options=new RequestOptions({ headers: this.headers });
+    //private url='http://sistema-eventos-back.herokuapp.com/api-token-auth/';
+    private url='https://teglo-fit.herokuapp.com/usuario/?format=api';
+    private headers=new Headers({
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Methods': 'POST, GET, OPTIONS, PUT',
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+    });
+    private options=new RequestOptions({
+        headers: this.headers
+    });
     error=null;
     user=null;
  
@@ -21,21 +29,24 @@ export class AuthService {
     }
 
     login(username: string, password: string): Observable<boolean> {
-        let body=JSON.stringify({ username: username, password: password });
+        let body=JSON.stringify({ username: username, password: password, Headers });
         return this.http.post(this.url, body, this.options)
         .map((response: Response) => {
             let a=console.log(body);
+            let b=console.log(this.token);        
+            let c=console.log(status);
+            let d=console.log(this.headers);
             let token=response.json() && response.json().token;
             if (token) {
                 this.token=token;
                 localStorage.setItem('currentUser', JSON.stringify({ username: username, password: password }));
                 return true;
             } else {
+                this.error='Nome de Usuário ou Senha de Acesso incorretos...';
                 return false;
             }
         });
     }
- 
     logout(): void {
         this.token=null;
         localStorage.removeItem('currentUser');

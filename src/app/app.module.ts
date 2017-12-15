@@ -9,27 +9,19 @@ import { route } from './app.routing';
 import { AuthGuard } from './guards/auth.guards';
 import { AuthService } from './services/auth.service';
 import { LoginComponent } from './login/login.component';
-import { AboutComponent } from './about/about.component';
-import { HomeComponent } from './home/home.component';
-import { UserComponent } from './user/user.component';
-import { PesagensComponent } from './pesagens/pesagens.component';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { AdminModule } from './admin/admin.module';
 
 @NgModule({
     imports: [
         BrowserModule,
         FormsModule,
         HttpModule,
+        AdminModule,
         route
     ],
     declarations: [
         AppComponent,
-        LoginComponent,
-        AboutComponent,
-        HomeComponent,
-        UserComponent,
-        PesagensComponent,
-        PageNotFoundComponent
+        LoginComponent
     ],
     providers: [
         AuthGuard,

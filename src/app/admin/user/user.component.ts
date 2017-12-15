@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 import { Router } from '@angular/router';
 import { User } from './user.model';
-import { UserService } from '../services/user.service';
+import { UserService } from '../../services/user.service';
 
 @Component({
     templateUrl: 'user.component.html',

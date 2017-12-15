@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 import { Router } from '@angular/router';
-import { PesagensService } from '../services/pesagens.service';
+import { PesagensService } from '../../services/pesagens.service';
 import { Pesagens } from './pesagens.model';
 
 @Component({
